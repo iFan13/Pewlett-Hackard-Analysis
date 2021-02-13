@@ -1,4 +1,4 @@
--- Creating departments tables for PH-EmployeeDB
+-- Creating tables for PH-EmployeeDB: Departments
 CREATE TABLE departments (
      dept_no VARCHAR(4) NOT NULL,
      dept_name VARCHAR(40) NOT NULL,
@@ -6,9 +6,9 @@ CREATE TABLE departments (
      UNIQUE (dept_name)
 );
 
---Create employees table
+-- Creating tables for PH-EmployeeDB: Employees
 CREATE TABLE employees (
-	 emp_no INT NOT NULL,
+     emp_no INT NOT NULL,
      birth_date DATE NOT NULL,
      first_name VARCHAR NOT NULL,
      last_name VARCHAR NOT NULL,
@@ -17,9 +17,9 @@ CREATE TABLE employees (
      PRIMARY KEY (emp_no)
 );
 
---create department manager table
+-- Creating tables for PH-EmployeeDB: dept_manager
 CREATE TABLE dept_manager (
-dept_no VARCHAR(4) NOT NULL,
+	dept_no VARCHAR(4) NOT NULL,
     emp_no INT NOT NULL,
     from_date DATE NOT NULL,
     to_date DATE NOT NULL,
@@ -28,7 +28,7 @@ FOREIGN KEY (dept_no) REFERENCES departments (dept_no),
     PRIMARY KEY (emp_no, dept_no)
 );
 
---create salaries table
+-- Creating tables for PH-EmployeeDB: dept_manager
 CREATE TABLE salaries (
   emp_no INT NOT NULL,
   salary INT NOT NULL,
@@ -38,23 +38,23 @@ CREATE TABLE salaries (
   PRIMARY KEY (emp_no)
 );
 
---create titles table
+-- Creating tables for PH-EmployeeDB: dept_emp
+CREATE TABLE dept_emp (
+  emp_no INT NOT NULL,
+  dept_no VARCHAR(4) NOT NULL,
+  from_date DATE NOT NULL,
+  to_date DATE NOT NULL,
+  FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
+  FOREIGN KEY (dept_no) REFERENCES departments (dept_no),
+  PRIMARY KEY (emp_no, dept_no)
+);
+
+-- Creating tables for PH-EmployeeDB: titles
 CREATE TABLE titles (
 	emp_no INT NOT NULL,
-	title varchar NOT NULL,
+	title VARCHAR, 
 	from_date DATE NOT NULL,
 	to_date DATE NOT NULL,
-FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
-PRIMARY KEY (emp_no)	
-)
-
---create employees dept table
-CREATE TABLE dept_emp (
-	emp_no INT NOT NULL,
-	dept_no VARCHAR(4) NOT NULL,
-    from_date DATE NOT NULL,
-    to_date DATE NOT NULL,
-FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
-FOREIGN KEY (dept_no) REFERENCES departments (dept_no),
-    PRIMARY KEY (emp_no, dept_no)
+	FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
+	PRIMARY KEY (emp_no, title, from_date)
 );
