@@ -37,9 +37,13 @@ Finally, the last query in the sql, we are extracting from the raw data a mentor
 
 ## Summary
 
+### How many roles will need to be filled as the "silver tsunami" begins to make an impact?
+
 **A total of 90398 employees would be retiring and would need that many roles would need to be filled.** In particular, senior engineers, senior staff, engineers, staff, technique leader and assistant engineers (a total of 7 role types) need to be fulfilled. Under the assumption that employees are retiring at age 65, some employees have loyally continued to work past this age. We can expect employees born in 1952 to want to retire first so it is crucial to establish how many roles need to be fulfilled from this set of retirees first. We can break down the replacements into priorities by year for instance using this [attached sql](/Queries/RetirementTitlesByYear.sql) whose query & results can be seen below.
 
 ![RetirementTitlesByYear](RetirementTitlesByYear.png)
+
+### Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
 
 In order to mentor the next generation of Pewlett Hackard employees, it is necessary to understand the number of retirement ready employees and mentorship eligible employees within their respective departments. We can use [this query](/Queries/CountMentorshipEligibiltyByDept.sql) to establish the count of mentorhsip eligible employees within the departments then use [this query](/Queries/CountRetiringByDept.sql) to establish the count of retirees within the departments. From there, it is possible to manually subtract each departments retiring employees to mentorable employees, but it'd be much simpler to create a query to do so such as [this one](/Queries/MentorsAvailable.sql); we can even perform arithmatic operations and use if statements to provide us with a clear cut answer. **For this particular case, there are definitely enough qualified, retirement-ready employees, whom are also still currently working in the departments to mentor the next generation (ie: people born in 1965 specifically) of Pewlett Hackard employees.
 
