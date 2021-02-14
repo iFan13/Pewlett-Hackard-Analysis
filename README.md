@@ -14,13 +14,13 @@ A duplicated database's structure will look something like below.
 Running the first three of the [queries relevant](/Queries/Employee_database_challenge.sql), we create output tables that are then saved in csv format (titled [retirement_titles.csv](/Data/retirement_titles.csv), [unique_titles](/Data/unique_titles.csv), [retiring_titles](/Data/retiring_titles.csv) respectively. Snippets of each table are labelled and shown below.
 
 Retirement titles: the purpose of this query is to retrieve the employees born between 1952 and 1955 (ordered by employee number) 
-[!retirement_titles](/retirement_titles.png)
+![retirement_titles](/retirement_titles.png)
 
 Unique titles: the purpose of this query is to narrow down the above data to only display one employee number where duplicates were caused by department switches or promotions.
-[!unique_titles](/unique_titles.png)
+![unique_titles](/unique_titles.png)
 
 Retiring titles: the purpose of this query is to provide a count of how many titles being held by employees are set to retire.
-[!retiring_titles](/retiring_titles.png)
+![retiring_titles](/retiring_titles.png)
 
 Finally, using the last query in the sql, we are extracting from the raw data a mentorship eligibility, specifically with conditions of "being a current employee" and "born between January 1, 1965 and December 31, 1965". This is saved in the [mentorship_eligibilty.csv](/Data/mentorship_eligibilty.csv)
 
